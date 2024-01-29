@@ -29,7 +29,9 @@ analyze verbose orders;
 Используя таблицу pg_stats, найдите столбец таблицы orders с наибольшим средним значением размера элементов в байтах.  
 Приведите в ответе команду, которую вы использовали для вычисления, и полученный результат.  
 ```SQL
-select attname from pg_stats where (tablename = 'orders') and (avg_width = (select max (avg_width) from pg_stats where tablename = 'orders'));
+select attname from pg_stats
+where (tablename = 'orders') and (avg_width = (select max (avg_width) from pg_stats
+								      where tablename = 'orders'));
 ```  
 ![](https://github.com/Svalker1989/PostgreSQL_2/blob/main/Z2.PNG)   
 
