@@ -31,7 +31,7 @@ analyze verbose orders;
 ```SQL
 select attname from pg_stats where (tablename = 'orders') and (avg_width = (select max (avg_width) from pg_stats where tablename = 'orders'));
 ```  
-![]()  
+![](https://github.com/Svalker1989/PostgreSQL_2/blob/main/Z2.PNG)   
 
 ### Задача 3
 Архитектор и администратор БД выяснили, что ваша таблица orders разрослась до невиданных размеров и поиск по ней занимает долгое время. Вам как успешному выпускнику курсов DevOps в Нетологии предложили провести разбиение таблицы на 2: шардировать на orders_1 - price>499 и orders_2 - price<=499.  
