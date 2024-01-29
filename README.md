@@ -23,10 +23,14 @@
 ` psql -U postgres -d test_database -f /tmp/postgres/backup/test_dump.sql postgres`  
 Перейдите в управляющую консоль psql внутри контейнера.  
 Подключитесь к восстановленной БД и проведите операцию ANALYZE для сбора статистики по таблице.  
-`analyze verbose orders;`  
+```SQL
+analyze verbose orders;
+```  
 Используя таблицу pg_stats, найдите столбец таблицы orders с наибольшим средним значением размера элементов в байтах.  
 Приведите в ответе команду, которую вы использовали для вычисления, и полученный результат.  
-`select attname from pg_stats where (tablename = 'orders') and (avg_width = (select max (avg_width) from pg_stats where tablename = 'orders'));`  
+```SQL
+select attname from pg_stats where (tablename = 'orders') and (avg_width = (select max (avg_width) from pg_stats where tablename = 'orders'));
+```  
 ![]()  
 
 ### Задача 3
